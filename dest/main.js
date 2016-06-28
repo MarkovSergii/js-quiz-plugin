@@ -3,16 +3,35 @@
  */
 $(document).ready(function(){
 
-
-  /*  var config = {
-
+    var data1 = {
+        questionrClass:"",
+        answerClass:"",
+        questionType:"radiobox",
+        question:{
+            text:"Сколько вам лет?",
+            answers:['<18','19-40','41-60','>60']
+        }
+    };
+    var data2 = {
+        questionrClass:"",
+        answerClass:"",
+        questionType:"radiobox",
+        question:{
+            text:"Сколько вам лет?",
+            answers:['<18','19-40','41-60','>60']
+        }
     };
 
-    var t = new JSQuiz(config);
-    t.create();
-*/
-    var q1 = $('#main').createQuiz();
-    var q2 = $('#main2').createQuiz();
+
+
+    var q1 = $('#main').createQuiz({
+        dataSrc:"data",
+        data:data1
+    });
+    var q2 = $('#main2').createQuiz({
+        dataSrc:"data",
+        data:data2
+    });
 
     q1.stat();
     q2.stat();

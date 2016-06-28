@@ -31,7 +31,7 @@ gulp.task('js', function() {
     gulp.src('src/*.js')
         .pipe(sourcemaps.init())
         .pipe(concat('js-quiz-plugin.min.js'))
-        .pipe(uglify())
+    //    .pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dest'));
 
