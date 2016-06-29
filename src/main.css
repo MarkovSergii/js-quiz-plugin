@@ -1,7 +1,24 @@
 #main
 {
-    display: block;
-    width: 100px;
-    height: 100px;
-    background-color: red;
+    display: inline-block;
+    width: 600px;
+    height: 630px;
+    background-color: #c7d1cb;
+    float: left;
+}
+#main2
+{
+    display: inline-block;
+    width: 600px;
+    height: 630px;
+    background-color: #c7d1cb;
+}
+.js_quiz_question_error_required  h3
+{
+    color:red;
+}
+
+.js_quiz_other_hide
+{
+    display: none;
 }

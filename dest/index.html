@@ -9,11 +9,134 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <div id="main">
+<div>
+    <div id="main" >
 
     </div>
-    <div id="main2">
+    <div id="main2" >
+        <textarea id = "q_param" cols="80" rows="10">
+            {
+                "data":"то что ниже ))",
+                "showRequireError":true
+            }
+        </textarea>
+        <textarea id = "q_quiz" cols="80" rows="25">
+[
+        {
+            "questionClass": "q3",
+            "answerClass": "q4",
+            "questionType": "radiogroup",
+            "required":true,
+            "question": {
+                "id":11,
+                "text": "Сколько вам лет?",
+                "answers": [
+                    {
+                        "id":12,
+                        "text":"<18"
+                    },
+                    {
+                        "id":11,
+                        "text":"19-30"
+                    },
+                    {
+                        "id":10,
+                        "text":"31-60"
+                    },
+                    {
+                        "id":1,
+                        "text":">60"
+                    },
+                    {
+                        "id":3,
+                        "other":true,
+                        "text":"Другое"
+                    }
+                ]
+            }
+        },
+        {
+            "questionClass":"",
+            "answerClass":"",
+            "required":true,
+            "questionType":"checkbox",
+            "question":{
+                "id":13,
+                "text":"Чего вы хотите?",
+                "answers": [
+                    {
+                        "id":12,
+                        "text":"Сникерс"
+                    },
+                    {
+                        "id":11,
+                        "text":"Воды"
+                    },
+                    {
+                        "id":10,
+                        "text":"Компутер"
+                    },
+                    {
+                        "id":1,
+                        "text":"ТВ"
+                    },
+                    {
+                        "id":3,
+                        "other":true,
+                        "text":"Другое"
+                    }
+                ]
+            }
+        },
+        {
+            "questionClass":"q5",
+            "answerClass":"q6",
+            "required":true,
+            "questionType":"text",
+            "question":{
+                "id":14,
+                "text":"Укажите имя"
+            }
+        },
+        {
+            "questionClass":"q7",
+            "answerClass":"q8",
+            "required":true,
+            "questionType":"select",
+            "question":{
+                "id":16,
+                "text":"Уровень счастья",
+                "answers": [
+                    {
+                        "id":12,
+                        "text":"Мега"
+                    },
+                    {
+                        "id":11,
+                        "text":"Супер"
+                    },
+                    {
+                        "id":10,
+                        "text":"Средне"
+                    },
+                    {
+                        "id":1,
+                        "text":"Плохо"
+                    }
+                ]
+            }
+        }
+    ]
+        </textarea>
+        <button id="set_quiz">set_quiz</button>
+        <button id="k">GET RESULT</button>
+    </div>
+</div>
+<div>
+
+    <div id="result" style="border: 1px solid black">
 
     </div>
+</div>
 </body>
 </html>
