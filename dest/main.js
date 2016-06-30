@@ -132,12 +132,19 @@ $(document).ready(function(){
 */
     var q1;
 
+    var myfunct = function(params){
+        console.log(params);
+        //alert("hh "+params.toString());
+    };
+
 
     $('#set_quiz').click(function(){
         var q_param = JSON.parse(($('#q_param').val()));
         var q_quiz = JSON.parse(($('#q_quiz').val()));
 
         q_param.data = q_quiz;
+        q_param.submitFunction = myfunct;
+
         q1 = $('#main').createQuiz(q_param);
     });
 

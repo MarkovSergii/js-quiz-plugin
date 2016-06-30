@@ -10,6 +10,11 @@ function JSQuiz(config) {
     this.id = config.id;
     this.showRequireError = config.showRequireError;
 
+    this.submitButton = config.submitButton;
+    this.submitFunction = config.submitFunction;
+    this.submitButtonClass = config.submitButtonClass;
+    this.submitButtonText = config.submitButtonText;
+
     this.data = [];
     if (Array.isArray(config.data)) {
         this.data = config.data;
@@ -20,10 +25,11 @@ function JSQuiz(config) {
 
 
     // system methods --------------------------------------------------
-    // create quiz block select
+    // create quiz
     var run = function (it) {
         if (it.data.length != 0) {
             $(that.id).html("");
+            // create all blocks
             it.data.forEach(function (item) {
                 if ((item.question) && (item.question.id) && (item.question.text)) {
                     if (item.questionType == 'radiogroup') {
@@ -41,6 +47,22 @@ function JSQuiz(config) {
                 }
 
             });
+            // check if need create button
+            if (it.submitButton)
+            {
+                var btn_div = $('<div></div>').addClass(it.submitButtonClass);
+                var btn = $('<button></button>').text(it.submitButtonText).click(function(){
+
+                    if (typeof it.submitFunction == 'function')
+                    {
+                        it.submitFunction.call(null,it.getValues());
+                    }
+
+                });
+
+                btn_div.append(btn);
+                $(that.id).append(btn_div);
+            }
 
 
         }
@@ -322,6 +344,10 @@ function JSQuiz(config) {
         var conf = {
             data: config.data || [],  // array of question objects or 1 obj if 1 question
             showRequireError: ((!!config.showRequireError) || (config.showRequireError == undefined)) ? true : false,
+            submitButton : config.submitButton || false,
+            submitFunction : config.submitFunction || undefined,
+            submitButtonText : config.submitButtonText || "Submit",
+            submitButtonClass : config.submitButtonClass || "",
             id: undefined
 
         };
