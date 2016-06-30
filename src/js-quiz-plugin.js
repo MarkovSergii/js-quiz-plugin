@@ -23,6 +23,12 @@ function JSQuiz(config) {
         this.data.push(config.data)
     }
 
+    var setError = function (id) {
+        $('[js_qz_id = ' + id + ']').addClass('js_quiz_question_error_required');
+    };
+    var unsetError = function (id) {
+        $('[js_qz_id = ' + id + ']').removeClass('js_quiz_question_error_required');
+    };
 
     // system methods --------------------------------------------------
     // create quiz
@@ -88,7 +94,7 @@ function JSQuiz(config) {
 
         // delete error class in we change value
         select.change(function () {
-            that.unsetError($(this).attr('question_id'));
+            unsetError($(this).attr('question_id'));
         });
         // connect all to root div
         content.append(select);
@@ -113,7 +119,7 @@ function JSQuiz(config) {
         var t = $('<input>').attr('name', 'answer_on_question' + item.question.id).attr('question_id', item.question.id).attr('type', 'text');
         // delete error class in we change value
         t.focus(function () {
-            that.unsetError($(this).attr('question_id'));
+            unsetError($(this).attr('question_id'));
         });
         // connect all to root div
         p.prepend(t);
@@ -149,7 +155,7 @@ function JSQuiz(config) {
 
             c.click(function () {
                 // delete error class in we change value
-                that.unsetError($(this).attr('question_id'));
+                unsetError($(this).attr('question_id'));
                 // if check  checkbox with other attr show other input
                 if ($(this).attr('can_other') == 'true') {
                     // if uncheck hide  other input
@@ -190,7 +196,7 @@ function JSQuiz(config) {
             }
             r.click(function () {
                 // delete error class in we change value
-                that.unsetError($(this).attr('question_id'));
+                unsetError($(this).attr('question_id'));
 
                 if ($(this).attr('can_other') == 'true') {
                     // if check  radio with other attr show other input
@@ -213,12 +219,7 @@ function JSQuiz(config) {
         return div_item
     };
 
-    var setError = function (id) {
-        $('[js_qz_id = ' + id + ']').addClass('js_quiz_question_error_required');
-    };
-    var unsetError = function (id) {
-        $('[js_qz_id = ' + id + ']').removeClass('js_quiz_question_error_required');
-    };
+
 
     //------------------------------------------------------------------
 
